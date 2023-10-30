@@ -22,10 +22,23 @@
 
 package ll150
 
-import ()
+import (
+// "math"
+)
 
 func MajorityElement(nums []int) (int, error) {
-	var es [150]int
-
-	return 0, nil
+	//var es [150]int
+	//mid := math.Floor(len(nums) / 2)
+	var m map[int]int
+	m = make(map[int]int)
+	for i := 0; i < len(nums); i++ {
+		m[nums[i]]++ // = m[nums[i]] + 1
+	}
+	maxVind := 0
+	for k, v := range m {
+		if v > m[maxVind] {
+			maxVind = k
+		}
+	}
+	return maxVind, nil
 }
